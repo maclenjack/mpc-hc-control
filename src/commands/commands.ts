@@ -1,4 +1,4 @@
-import {MpcCommands, MpcCommandsList} from "./mpcCommands";
+import {MpcCommands} from "./mpcCommands";
 import {Dictionary} from "../types";
 import {millisecondsToDuration} from "../utils/timeConvert";
 

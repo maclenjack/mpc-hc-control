@@ -1,11 +1,10 @@
-import * as _ from "lodash";
 import {IPlayerVariables} from "./commands/commands";
 
 export function variableParser(variablePageHtml: string): IPlayerVariables {
-    const reg = /\<p id="(\w+)"\>(.*)\<\/p\>/ig;
+    const reg = /<p id="(\w+)">(.*)<\/p>/ig;
     const fields = {};
 
-    let result;
+    let result: RegExpExecArray | null;
     while((result = reg.exec(variablePageHtml)) !== null) {
         fields[result[1]] = result[2];
     }

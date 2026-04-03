@@ -14,6 +14,8 @@
   "homepage": "https://github.com/rzcoder/mpc-hc-control",
   "scripts": {
     "build": "tsc",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -22,12 +24,18 @@
   ],
   "author": "rzcoder",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/lodash": "^4.14.177",
-    "@types/node": "^16.11.7"
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "@typescript-eslint/parser": "^8.57.1",
+    "eslint": "^10.1.0",
+    "jiti": "^2.6.1",
+    "typescript-eslint": "^8.57.1"
   },
   "dependencies": {
-    "axios": "^0.24.0",
-    "lodash": "^4.17.10"
+    "axios": "^1.13.6"
   }
 }

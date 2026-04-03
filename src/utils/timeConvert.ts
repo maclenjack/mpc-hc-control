@@ -1,5 +1,3 @@
-import * as _ from "lodash";
-
 export function millisecondsToDuration(ms: number): string {
     if (ms <= 0) {
         return "00:00:00";
@@ -12,5 +10,5 @@ export function millisecondsToDuration(ms: number): string {
     const minutes = Math.floor(duration / 60);
     duration =  duration % 60;
 
-    return _.padStart(hours.toString(), 2, "0") + ":" + _.padStart(minutes.toString(), 2, "0") + ":" + _.padStart(duration.toString(), 2, "0");
+    return hours.toString().padStart(2, "0") + ":" + minutes.toString().padStart(2, "0") + ":" + duration.toString().padStart(2, "0");
 }
