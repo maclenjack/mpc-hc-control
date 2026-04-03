@@ -1,17 +1,23 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2020",
     "outDir": "lib",
+    "rootDir": "src",
     "sourceMap": false,
     "declaration": true,
+    "declarationMap": true,
     "pretty": true,
-    "strictNullChecks": false,
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "removeComments": false,
     "lib": [
-      "es6",
-      "dom"
+      "es2020"
     ]
   },
   "include": [
@@ -19,7 +25,6 @@
   ],
   "exclude": [
     "node_modules",
-    "",
     "lib"
   ]
 }
