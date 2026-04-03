@@ -3,7 +3,18 @@
   "version": "1.0.3",
   "description": "Lib for control Media Player Classic - Home Cinema via HTTP API",
   "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.js"
+    }
+  },
+  "files": [
+    "lib",
+    "readme.md"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/rzcoder/mpc-hc-control.git"
@@ -16,15 +27,18 @@
     "build": "tsc",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build"
   },
   "keywords": [
     "mpc-hc",
-    "api"
+    "api",
+    "media-player-classic",
+    "mpc",
+    "player-control"
   ],
   "author": "rzcoder",
   "license": "MIT",
-  "type": "module",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/lodash": "^4.14.177",
@@ -33,9 +47,13 @@
     "@typescript-eslint/parser": "^8.57.1",
     "eslint": "^10.1.0",
     "jiti": "^2.6.1",
+    "typescript": "^5.0.0",
     "typescript-eslint": "^8.57.1"
   },
   "dependencies": {
     "axios": "^1.13.6"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

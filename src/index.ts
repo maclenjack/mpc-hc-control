@@ -22,7 +22,7 @@ export class MpcControl extends AbstractPlayerController {
      * @commandId - any supported command from commands/mpcCommands.ts
      * @data - additional data provided in to api call
      */
-    execute(commandId: MpcCommands, data?: Dictionary<string | number | boolean>): Promise<unknown> {
+    execute(commandId: MpcCommands, data?: Dictionary<any>): Promise<any> {
         const url = this.apiHost + "/command.html";
         return axios.get(url, {
             params: {

@@ -2,7 +2,7 @@ import {IPlayerVariables} from "./commands/commands";
 
 export function variableParser(variablePageHtml: string): IPlayerVariables {
     const reg = /<p id="(\w+)">(.*)<\/p>/ig;
-    const fields = {};
+    const fields: Record<string, string> = {};
 
     let result: RegExpExecArray | null;
     while((result = reg.exec(variablePageHtml)) !== null) {
@@ -10,18 +10,18 @@ export function variableParser(variablePageHtml: string): IPlayerVariables {
     }
 
     return {
-        version: fields["version"],
-        file: fields["file"],
-        filepath: fields["filepath"],
-        filedir: fields["filedir"],
-        size: fields["size"],
-        state: parseInt(fields["state"]),
-        statestring: fields["statestring"],
-        position: parseFloat(fields["position"]),
-        positionstring: fields["positionstring"],
-        duration: parseFloat(fields["duration"]),
-        durationstring: fields["durationstring"],
-        volumelevel: parseFloat(fields["volumelevel"]),
+        version: fields["version"] ?? "",
+        file: fields["file"] ?? "",
+        filepath: fields["filepath"] ?? "",
+        filedir: fields["filedir"] ?? "",
+        size: fields["size"] ?? "",
+        state: parseInt(fields["state"] ?? "0", 10),
+        statestring: fields["statestring"] ?? "",
+        position: parseFloat(fields["position"] ?? "0"),
+        positionstring: fields["positionstring"] ?? "",
+        duration: parseFloat(fields["duration"] ?? "0"),
+        durationstring: fields["durationstring"] ?? "",
+        volumelevel: parseFloat(fields["volumelevel"] ?? "0"),
         muted: fields["muted"] !== "0"
     }
 }
