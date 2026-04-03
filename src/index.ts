@@ -1,6 +1,4 @@
-import * as _ from "lodash";
 import axios from "axios";
-const querystring = require("querystring");
 import {MpcCommands, MpcCommandsList} from "./commands/mpcCommands";
 import {Dictionary} from "./types";
 import {IPlayerVariables, AbstractPlayerController} from "./commands/commands";
@@ -24,12 +22,13 @@ export class MpcControl extends AbstractPlayerController {
      * @commandId - any supported command from commands/mpcCommands.ts
      * @data - additional data provided in to api call
      */
-    execute(commandId: MpcCommands, data?: Dictionary<any>): Promise<any> {
+    execute(commandId: MpcCommands, data?: Dictionary<string | number | boolean>): Promise<unknown> {
         const url = this.apiHost + "/command.html";
         return axios.get(url, {
-            params: _.merge({
-                wm_command: MpcCommandsList[commandId].value
-            }, data)
+            params: {
+                wm_command: MpcCommandsList[commandId].value,
+                ...data
+            }
         });
     }
 
