@@ -1,34 +1,17 @@
 {
   "name": "mpc-hc-control",
-  "version": "1.0.3",
-  "description": "Lib for control Media Player Classic - Home Cinema via HTTP API",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib/index.js",
-      "require": "./lib/index.js"
-    }
-  },
-  "files": [
-    "lib",
-    "readme.md"
-  ],
+  "version": "2.0.0",
+  "description": "Fork of mpc-hc-control - Control Media Player Classic - Home Cinema via HTTP API",
+  "author": "rzcoder (original), maclenjack (fork maintainer)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rzcoder/mpc-hc-control.git"
+    "url": "https://github.com/maclenjack/mpc-hc-control.git"
   },
   "bugs": {
-    "url": "https://github.com/rzcoder/mpc-hc-control/issues"
+    "url": "https://github.com/maclenjack/mpc-hc-control/issues"
   },
-  "homepage": "https://github.com/rzcoder/mpc-hc-control",
-  "scripts": {
-    "build": "tsc",
-    "lint": "eslint src/",
-    "lint:fix": "eslint src/ --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "homepage": "https://github.com/maclenjack/mpc-hc-control#readme",
+  "license": "MIT",
   "keywords": [
     "mpc-hc",
     "api",
@@ -36,12 +19,27 @@
     "mpc",
     "player-control"
   ],
-  "author": "rzcoder",
-  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@types/lodash": "^4.14.177",
-    "@types/node": "^16.11.7",
+    "@eslint/js": "^^16.11.7",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
     "eslint": "^10.1.0",
@@ -51,8 +49,5 @@
   },
   "dependencies": {
     "axios": "^1.13.6"
-  },
-  "engines": {
-    "node": ">=14.0.0"
   }
 }
