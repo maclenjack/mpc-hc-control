@@ -1,6 +1,6 @@
-import {MpcCommands} from "./mpcCommands";
-import {Dictionary} from "../types";
-import {millisecondsToDuration} from "../utils/timeConvert";
+import type { MpcCommands } from "./mpcCommands.mjs";
+import type { Dictionary } from "../types.mjs";
+import { millisecondsToDuration } from "../utils/timeConvert.mjs";
 
 export interface IPlayerVariables {
     version: string;
@@ -28,7 +28,7 @@ export interface IPositionInfo {
 }
 
 export abstract class AbstractPlayerController {
-    abstract execute(commandId: MpcCommands, data?: Dictionary<any>): Promise<any>;
+    abstract execute(commandId: MpcCommands, data?: Dictionary<string | number | boolean>): Promise<void>;
     abstract getVariables(): Promise<IPlayerVariables>;
 
     async isPlaying(): Promise<boolean> {
@@ -76,7 +76,7 @@ export abstract class AbstractPlayerController {
         return this.execute("PLAY_PAUSE");
     }
 
-    stop(): Promise<boolean>{
+    stop(): Promise<void>{
         return this.execute("STOP");
     }
 
@@ -140,3 +140,5 @@ export abstract class AbstractPlayerController {
         return this.execute("PREV_SUBTITLE");
     }
 }
+
+

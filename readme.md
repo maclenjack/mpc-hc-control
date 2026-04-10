@@ -1,20 +1,48 @@
 # MPC-HC Control
 
+> ⚠️ **This is a maintained fork**
+> 
+> Original repository: [rzcoder/mpc-hc-control](https://github.com/rzcoder/mpc-hc-control)
+> 
+> This fork includes updates, fixes, and modernization of the original library.
+
 Basic control over [Media Player Classic - Home Cinema](https://mpc-hc.org/) via http api.
 
 ## Setup
 Enable web interface in mpc-hc settings.
  
-`npm i mpc-hc-control`
+Install directly from GitHub:
+`npm install github:maclenjack/mpc-hc-control`
 
 ## Usage
- 
+
+### ESM Import
 ```ts
-const {MpcControl} = require("mpc-hc-control");
- 
-const mpcApi = new MpcControl("localhost", 13579);
-mpcApi.openFile("c:\\video.mkv"));
-mpcApi.setVolume(75);
+import { MpcControl } from 'mpc-hc-control';
+
+// Create client instance
+const mpc = new MpcControl('localhost', 13579);
+
+// Example usage
+await mpc.openFile('C:\\video.mkv');
+await mpc.setVolume(75);
+await mpc.play();
+```
+
+### With proxy configuration
+```ts
+import { MpcControl } from 'mpc-hc-control';
+
+// Connect via reverse proxy / remote host
+const mpc = new MpcControl('your-server-ip', 80,
+  {
+    pathPrefix: '/proxy',
+    queryParams: {
+      host: 'localhost',
+      port: 13579
+    }
+  }
+);
 ```
 
 ## Methods list

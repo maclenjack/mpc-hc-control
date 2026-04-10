@@ -1,4 +1,4 @@
-import {IPlayerVariables} from "./commands/commands";
+import {type IPlayerVariables} from "./commands/commands.mjs";
 
 export function variableParser(variablePageHtml: string): IPlayerVariables {
     const reg = /<p id="(\w+)">(.*)<\/p>/ig;
